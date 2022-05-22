@@ -1,0 +1,5 @@
+# Exercise 3.8
+
+Here is diagram:
+
+!(diagramExercise3.8.png)
