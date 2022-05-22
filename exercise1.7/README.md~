@@ -8,11 +8,11 @@ CMD server
 After building the image:
 
 ```
->>> docker build . -t webserver
+>>> docker build . -t testweb
 ```
 
 We just run the container with:
 
 ```
->>> docker run web-server
+>>> docker run testweb
 ```

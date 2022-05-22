@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  backend:
+    container_name: backend29
+    build: ./example-backend
+    environment:
+      REQUEST_ORIGIN: http://localhost:80
+      POSTGRES_HOST: postgresdb
+      POSTGRES_USER: postgresdb
+      POSTGRES_PASSWORD: postgresdb
+      POSTGRES_DATABASE: postgresdb
+      REDIS_HOST: redis
+  frontend:
+    container_name: frontend29
+    build: ./example-frontend
+    environment:
+      REACT_APP_BACKEND_URL: http://localhost:80
+  redis:
+    container_name: redis29
+    image: redis
+    restart: unless-stopped
+    volumes:
+      - ./redis:/data
+  postgresdb:
+    container_name: postgresdb29
+    image: postgres
+    environment:
+      POSTGRES_HOST: postgresdb
+      POSTGRES_USER: postgresdb
+      POSTGRES_PASSWORD: postgresdb
+      POSTGRES_DATABASE: postgresdb
+    volumes:
+      - ./database:/var/lib/postgresql/data
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.config:/etc/nginx/nginx.conf

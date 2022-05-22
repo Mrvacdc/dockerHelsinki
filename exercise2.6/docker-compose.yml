@@ -14,7 +14,7 @@ services:
     ports:
       - 5000:5000
   redis:
-    container_name: redis-cache
+    container_name: redis-cache26
     image: redis
     restart: unless-stopped
   postgresdb:
